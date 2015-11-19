@@ -97,7 +97,6 @@ namespace GetSkills.Controllers
                                     select u).ToList();
             if(storyList.Count > 0)
             {
-                //return View(storyList.First());
                 return RedirectToAction("Index", "SuccessStory", new { sortOrder = "ID_asc" });
             }
             else
