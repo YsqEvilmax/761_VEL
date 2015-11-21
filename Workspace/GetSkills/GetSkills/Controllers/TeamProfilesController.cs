@@ -50,6 +50,7 @@ namespace GetSkills.Controllers
         }
 
         // GET: TeamProfiles/Details/5
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Details(int? id)
         {

@@ -83,25 +83,47 @@ namespace GetSkills.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult AdminLogin(users model, string returnUrl)
+        public async Task<ActionResult> AdminLogin(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
-            List<users> storyList = (from u in db.users
-                                    where u.email_address == model.email_address &&
-                                    u.user_pswd == model.user_pswd &&
-                                    u.user_type == "1"
-                                    select u).ToList();
-            if(storyList.Count > 0)
+            //List<users> storyList = (from u in db.users
+            //                        where u.email_address == model.email_address &&
+            //                        u.user_pswd == model.user_pswd &&
+            //                        u.user_type == "1"
+            //                        select u).ToList();
+            //if(storyList.Count > 0)
+            //{
+            //    return RedirectToAction("Index", "SuccessStory", new { sortOrder = "ID_asc" });
+            //}
+            //else
+            //{
+            //    return View(model);
+            //}
+
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
+
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            switch (result)
             {
-                return RedirectToAction("Index", "SuccessStory", new { sortOrder = "ID_asc" });
-            }
-            else
-            {
-                return View(model);
+                case SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    return View(model);
             }
         }
 
@@ -441,6 +463,7 @@ namespace GetSkills.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {

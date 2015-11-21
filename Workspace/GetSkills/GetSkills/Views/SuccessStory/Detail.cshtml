@@ -8,8 +8,6 @@
     ViewBag.Title = "Details";
 }
 
-@Scripts.Render("~/bundles/SDK")
-
 <div class="container-fluid">
     <div class="container">
         <hr class="featurette-divider">
@@ -60,7 +58,11 @@
             </table>
         </div><!-- Course list row end -->
     </div><!-- Container end -->
-    <p>
-        @Html.ActionLink("Back to List", "List")
-    </p>
+
+    <div class="col-md-12">
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.successStory.success_story_id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Back to List", "List", new { }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 </div><!-- /.container -->

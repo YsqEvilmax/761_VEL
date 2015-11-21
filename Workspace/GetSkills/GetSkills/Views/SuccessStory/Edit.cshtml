@@ -4,7 +4,6 @@
     ViewBag.Title = "Edit";
 }
 
-<link rel="stylesheet" href="~/Content/font-awesome.css">
 <style>
     .floating-box {
         float: left;
@@ -32,7 +31,6 @@
     header .container {
         max-width: none;
     }
-
 </style>
 <script type="text/javascript">
     function removeWidthLimit() {
@@ -100,7 +98,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="brief">Brief Story</label>
             <div class="col-md-10 ">
-                @Html.EditorFor(model => model.successStory.brief, new { htmlAttributes = new { @class = "form-control story_textarea_brief ", row = 4 } })
+                @Html.TextAreaFor(model => model.successStory.brief, new { @class = "form-control story_textarea_brief "})
                 @Html.ValidationMessageFor(model => model.successStory.brief, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -108,7 +106,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="detail_description">Detail Story</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.successStory.detail_description, new { htmlAttributes = new { @class = "form-control story_textarea_brief " } })
+                @Html.TextAreaFor(model => model.successStory.detail_description, new { @class = "form-control story_textarea_brief " })
                 @Html.ValidationMessageFor(model => model.successStory.detail_description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -121,7 +119,7 @@
                     {
                         <div class="floating-box">
                             @Html.CheckBoxFor(m => Model.allCategoryList[i].isSelected)
-                            @Html.LabelFor(m => Model.allCategoryList[i].isSelected, Model.allCategoryList[i].category_name)
+                            @Html.LabelFor(m => Model.allCategoryList[i].isSelected, Model.allCategoryList[i].category_name, new { @class = "checkbox-inline" })
                             @Html.HiddenFor(m => Model.allCategoryList[i].category_id)
                             @Html.HiddenFor(m => Model.allCategoryList[i].story_category_id)
                         </div>
@@ -147,18 +145,12 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
+        <div class="form-group col-md-12">
+            <div class="btn-group pull-right" role="group" aria-label="...">
+                <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Back to List", "List", new { }, new { @class = "btn btn-primary" })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink(" Back to List", "Index", new { }, new { @class = "fa fa-arrow-circle-o-left fa-lg" })
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

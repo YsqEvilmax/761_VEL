@@ -30,8 +30,6 @@ namespace GetSkills
                       "~/Scripts/google+SDK.js",
                       "~/Scripts/linkedinSDK.js",
                       "~/Scripts/shareThis.js"));
-            bundles.Add(new ScriptBundle("~/bundles/web").Include(
-                      "~/Scripts/homepage.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

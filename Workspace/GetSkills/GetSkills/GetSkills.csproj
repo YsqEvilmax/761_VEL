@@ -187,8 +187,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TeamProfilesController.cs" />
-    <Compile Include="Controllers\TestAutomationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -574,10 +574,11 @@
     <Content Include="Views\TeamProfiles\List.cshtml" />
     <Content Include="Views\TeamProfiles\Edit.cshtml" />
     <Content Include="Views\TeamProfiles\Index.cshtml" />
-    <Content Include="Views\TestAutomation\Index.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\VisitorCounter.cshtml" />
+    <Content Include="Views\Product\TestAutomation.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

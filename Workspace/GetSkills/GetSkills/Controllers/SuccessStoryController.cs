@@ -12,6 +12,7 @@ using GetSkills.Models;
 
 namespace GetSkills.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SuccessStoryController : Controller
     {
         private GetSkillsEntities db = new GetSkillsEntities();
@@ -89,6 +90,7 @@ namespace GetSkills.Controllers
         }
 
         // LIST: SuccessStory
+        [AllowAnonymous]
         public async Task<ActionResult> List(int? categoryId)
         {
 
@@ -110,6 +112,8 @@ namespace GetSkills.Controllers
         }
 
         // GET: SuccessStory/Details/5
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Detail(int? id)
         {
             if (id == null)
