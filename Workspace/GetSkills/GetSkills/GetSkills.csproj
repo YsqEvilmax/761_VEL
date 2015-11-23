@@ -579,6 +579,7 @@
     <Content Include="Views\Shared\VisitorCounter.cshtml" />
     <Content Include="Views\Product\TestAutomation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Manage\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

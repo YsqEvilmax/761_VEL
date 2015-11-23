@@ -10,7 +10,7 @@ using GetSkills.Models;
 
 namespace GetSkills.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -50,6 +50,10 @@ namespace GetSkills.Controllers
             }
         }
 
+        public ActionResult Admin()
+        {
+            return View();
+        }
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

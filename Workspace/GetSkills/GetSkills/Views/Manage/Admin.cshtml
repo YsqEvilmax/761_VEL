@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="nav nav-sidebar">
+                <li class="nav-header"><h3>Manage</h3></li>
+                <li>@Html.ActionLink("Success Story", "Index", "SuccessStory")</li>
+                <li>@Html.ActionLink("Team Profile", "Index", "TeamProfile")</li>
+                <li class="divider"></li>
+                <li class="active"><a href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <!-- START THE FEATURETTES -->
+            <h2 class="text-center">Hello @User.Identity.Name !</h2>
+            <!-- /END THE FEATURETTES -->
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
