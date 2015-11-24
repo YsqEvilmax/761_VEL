@@ -192,6 +192,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509100206294_InitialCreate.cs" />
+    <Compile Include="Migrations\201509100206294_InitialCreate.Designer.cs">
+      <DependentUpon>201509100206294_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\board.cs">
       <DependentUpon>GetSkills.tt</DependentUpon>
@@ -386,10 +391,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-GetSkills-20150910113325.mdf" />
-    <Content Include="App_Data\aspnet-GetSkills-20150910113325_log.ldf">
-      <DependentUpon>aspnet-GetSkills-20150910113325.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carousel.css" />
@@ -497,8 +498,8 @@
     <Content Include="Models\GetSkills.edmx.diagram">
       <DependentUpon>GetSkills.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\GetSkills.pubxml" />
     <None Include="Properties\PublishProfiles\getskillslab.pubxml" />
+    <None Include="Properties\PublishProfiles\getskillstest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\facebookSDK.js" />
     <Content Include="Scripts\holder.min.js" />
@@ -593,7 +594,14 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509100206294_InitialCreate.resx">
+      <DependentUpon>201509100206294_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
