@@ -13,7 +13,7 @@ using GetSkills.Models;
 namespace GetSkills.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class TeamProfilesController : Controller
+    public class TeamProfileController : Controller
     {
         private GetSkillsEntities db = new GetSkillsEntities();
 

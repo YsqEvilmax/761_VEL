@@ -188,7 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\TeamProfilesController.cs" />
+    <Compile Include="Controllers\TeamProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -570,11 +570,11 @@
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\SuccessStory\Create.cshtml" />
     <Content Include="Views\Account\AdminLogin.cshtml" />
-    <Content Include="Views\TeamProfiles\Create.cshtml" />
-    <Content Include="Views\TeamProfiles\Delete.cshtml" />
-    <Content Include="Views\TeamProfiles\List.cshtml" />
-    <Content Include="Views\TeamProfiles\Edit.cshtml" />
-    <Content Include="Views\TeamProfiles\Index.cshtml" />
+    <Content Include="Views\TeamProfile\Create.cshtml" />
+    <Content Include="Views\TeamProfile\Delete.cshtml" />
+    <Content Include="Views\TeamProfile\List.cshtml" />
+    <Content Include="Views\TeamProfile\Edit.cshtml" />
+    <Content Include="Views\TeamProfile\Index.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\VisitorCounter.cshtml" />
