@@ -45,7 +45,7 @@
                         </p>
 
                         @{
-                            var link = Request.Url.ToString().Replace("List", "Detial") + "/" + item.success_story_id.ToString();
+                            var link = Request.Url.ToString();
                             var title = "My success story - " + item.user_name.ToString();
                             var description = "Hi my friends, here are my story at GetSkills : " + link;
                             var pic = @Url.Content(item.pic);

@@ -22,7 +22,7 @@
             </div>           
             <div class="col-md-5">        
                 @{
-                    var link = Request.Url.ToString().Replace("List", "Detial") + "/" + Model.successStory.success_story_id.ToString();
+                    var link = Request.Url.ToString();
                     var title = "My success story - " + Model.successStory.user_name.ToString();
                     var description = "Hi my friends, here are my story at GetSkills : " + link;
                     var pic = @Url.Content(Model.successStory.pic);
