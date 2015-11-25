@@ -8,6 +8,8 @@
     ViewBag.Title = "Details";
 }
 
+@Scripts.Render("~/bundles/sharebutton")
+
 <div class="container-fluid">
     <div class="container">
         <hr class="featurette-divider">
@@ -18,12 +20,38 @@
                      src="@Url.Content(Model.successStory.pic)"
                      alt="Story teller's portrait img">
             </div>           
-            <div class="col-md-5">
-                <span class='st_facebook_large' st_url=@Url displayText='Facebook'></span>
-                <span class='st_twitter_large' st_url=@Url displayText='Tweet'></span>
-                <span class='st_linkedin_large' st_url=@Url displayText='LinkedIn'></span>
-                <span class='st_googleplus_large' st_url=@Url displayText='Google+'></span>
-            </div>
+            <div class="col-md-5">        
+                @{
+                    var link = Request.Url.ToString().Replace("List", "Detial") + "/" + Model.successStory.success_story_id.ToString();
+                    var title = "My success story - " + Model.successStory.user_name.ToString();
+                    var description = "Hi my friends, here are my story at GetSkills : " + link;
+                    var pic = @Url.Content(Model.successStory.pic);
+                }
+                <share-button></share-button>
+
+                <script>
+                            new ShareButton({
+                                url: '@link',
+                                title: '@title',
+                                description: '@description',
+                                image: '@pic',
+                                networks: {
+                                    pinterest: {
+                                        enabled: false
+                                    },
+                                    reddit: {
+                                        enabled: false
+                                    },
+                                    whatsapp: {
+                                        enabled: false
+                                    },
+                                    email: {
+                                        enabled: false
+                                    }
+                                }
+                            });
+                </script>
+             </div>
             <div class="col-sm-7">
                 <h1>@Html.DisplayFor(modelItem => Model.successStory.brief)</h1>
                 <p class="lead featurette-description">

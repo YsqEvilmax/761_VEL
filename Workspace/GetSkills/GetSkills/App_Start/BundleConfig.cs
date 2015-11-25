@@ -24,12 +24,8 @@ namespace GetSkills
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/SDK").Include(
-                      "~/Scripts/facebookSDK.js",
-                      "~/Scripts/twitterSDK.js",
-                      "~/Scripts/google+SDK.js",
-                      "~/Scripts/linkedinSDK.js",
-                      "~/Scripts/shareThis.js"));
+            bundles.Add(new ScriptBundle("~/bundles/sharebutton").Include(
+                      "~/Scripts/share-button.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -37,7 +33,8 @@ namespace GetSkills
                       "~/Content/carousel.css",
                       "~/Content/general.css",
                       "~/Content/login2.css",
-                      "~/Content/local.css"));
+                      "~/Content/local.css",
+                      "~/content/share-button.css"));
         }
     }
 }

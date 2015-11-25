@@ -19,7 +19,6 @@ namespace GetSkills.Controllers
 
         // GET: TeamProfiles
         // Team profile index page for administrators
-        [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
             List<profile> profileList = (from pro in db.profile where pro.status == 1 select pro).ToList();
@@ -51,7 +50,6 @@ namespace GetSkills.Controllers
 
         // GET: TeamProfiles/Details/5
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -68,7 +66,6 @@ namespace GetSkills.Controllers
 
         // GET: TeamProfiles/Create
         // Team profile create page for administrators
-        [ValidateAntiForgeryToken]
         public ActionResult Create()
         {
             ProfileIndexViewModel editView = new ProfileIndexViewModel();
