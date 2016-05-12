@@ -113,7 +113,6 @@ namespace GetSkills.Controllers
 
         // GET: SuccessStory/Details/5
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Detail(int? id)
         {
             if (id == null)
