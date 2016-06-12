@@ -104,10 +104,10 @@ namespace GetSkills.Controllers
             //    return View(model);
             //}
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(model);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -115,7 +115,8 @@ namespace GetSkills.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Admin", "Manage");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
